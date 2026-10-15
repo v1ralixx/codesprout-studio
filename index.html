@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#101410">
+    <meta name="description" content="Бесплатный онлайн-песочник для изучения HTML, CSS и JavaScript. Пиши код, смотри результат и скачивай свои проекты.">
+    <title>CodeSprout — твоя первая кодовая мастерская</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="CodeSprout, на главную">
+        <span class="brand-mark" aria-hidden="true">✳</span>
+        <span>code<span class="brand-light">sprout</span></span>
+        <span class="brand-tag">СТУДИЯ</span>
+      </a>
+      <div class="topbar-status"><span class="status-dot"></span> Всё сохраняется в браузере</div>
+      <a class="top-link" href="https://github.com/new" target="_blank" rel="noreferrer">Звёздочка для проекта <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main class="main">
+      <section class="intro">
+        <div class="intro-copy">
+          <div class="eyebrow"><span>БЕСПЛАТНО</span><span class="eyebrow-star">✳</span> ТВОЯ ПЕРВАЯ КОДОВАЯ МАСТЕРСКАЯ</div>
+          <h1>Идеи любят,<br>когда их <span>кодят.</span></h1>
+          <p class="intro-description">Небольшое место для больших начинаний. Пиши код, сразу смотри, что получилось, и не бойся экспериментировать.</p>
+        </div>
+        <aside class="tip-card">
+          <span class="tip-icon" aria-hidden="true">✦</span>
+          <p><strong>Каждый эксперт<br>начинал с нуля.</strong><br>Давай напишем первую строчку?</p>
+          <span class="tip-scribble" aria-hidden="true">↙</span>
+        </aside>
+      </section>
+
+      <section class="workspace" aria-label="Редактор кода и предпросмотр">
+        <div class="workspace-toolbar">
+          <div class="file-label"><span class="file-icon" aria-hidden="true">▤</span><span>твой-первый-проект</span><span class="file-extension">.html</span></div>
+          <div class="toolbar-actions">
+            <label class="example-label" for="examples">НАЧАТЬ С ПРИМЕРА</label>
+            <select id="examples" aria-label="Выбрать пример">
+              <option value="welcome">Привет, мир!</option>
+              <option value="card">Карточка профиля</option>
+              <option value="counter">Счётчик кликов</option>
+              <option value="blank">Чистый лист</option>
+            </select>
+            <button class="button button-quiet" id="reset-button" type="button" title="Вернуть изначальный пример">↺ <span>Сбросить</span></button>
+            <button class="button button-primary" id="run-button" type="button"><span aria-hidden="true">▶</span> Запустить <kbd>Ctrl ↵</kbd></button>
+          </div>
+        </div>
+
+        <div class="workspace-grid">
+          <section class="editors-panel" aria-label="Редакторы">
+            <div class="editor-tabs" role="tablist" aria-label="Язык кода">
+              <button class="editor-tab active" id="tab-html" type="button" role="tab" aria-selected="true" aria-controls="editor-html" data-tab="html"><span class="language-dot html-dot"></span> HTML <span class="tab-extra">каркас</span></button>
+              <button class="editor-tab" id="tab-css" type="button" role="tab" aria-selected="false" aria-controls="editor-css" data-tab="css"><span class="language-dot css-dot"></span> CSS <span class="tab-extra">стиль</span></button>
+              <button class="editor-tab" id="tab-js" type="button" role="tab" aria-selected="false" aria-controls="editor-js" data-tab="js"><span class="language-dot js-dot"></span> JS <span class="tab-extra">логика</span></button>
+            </div>
+            <div class="editor-content">
+              <label class="sr-only" for="editor-html">HTML: структура содержимого страницы</label>
+              <textarea id="editor-html" class="code-editor" role="tabpanel" aria-labelledby="tab-html" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off"></textarea>
+              <label class="sr-only" for="editor-css">CSS: оформление страницы</label>
+              <textarea id="editor-css" class="code-editor hidden" role="tabpanel" aria-labelledby="tab-css" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off" hidden></textarea>
+              <label class="sr-only" for="editor-js">JavaScript: логика страницы</label>
+              <textarea id="editor-js" class="code-editor hidden" role="tabpanel" aria-labelledby="tab-js" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" wrap="off" hidden></textarea>
+              <div class="editor-footer"><span id="cursor-status">СТРОКА 1, СИМВОЛ 1</span><span>TAB ДВА ПРОБЕЛА</span><span>UTF-8</span></div>
+            </div>
+            <div class="editor-hint"><span class="hint-bulb" aria-hidden="true">✦</span><span id="editor-hint-text">HTML — это каркас страницы. Измени текст между тегами и нажми «Запустить».</span></div>
+          </section>
+
+          <section class="preview-panel" aria-label="Предпросмотр">
+            <div class="preview-header">
+              <div class="preview-heading"><span class="preview-pulse"></span><span>ПРЕДПРОСМОТР</span></div>
+              <div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+              <button class="preview-refresh" id="refresh-button" type="button" aria-label="Обновить предпросмотр" title="Обновить предпросмотр">↻</button>
+            </div>
+            <iframe id="preview-frame" title="Предпросмотр твоего проекта" sandbox="allow-scripts" referrerpolicy="no-referrer"></iframe>
+            <section class="console-panel" aria-label="Консоль">
+              <div class="console-header"><span>КОНСОЛЬ</span><button class="clear-console" id="clear-console" type="button">Очистить</button></div>
+              <div id="console-output" class="console-output" role="log" aria-live="polite"><div class="console-empty">Тут появятся сообщения. <span>console.log("Привет!")</span></div></div>
+            </section>
+          </section>
+        </div>
+
+        <div class="workspace-footer">
+          <span><span class="footer-sprout">✳</span> Маленькие шаги — тоже прогресс.</span>
+          <div class="footer-actions"><span id="save-status">Изменения сохраняются автоматически</span><button class="download-button" id="download-button" type="button"><span aria-hidden="true">↓</span> Скачать проект (.zip)</button></div>
+        </div>
+      </section>
+
+      <section class="bottom-note">
+        <div class="note-tips"><span><span class="note-key">1</span> Выбери пример</span><span class="note-arrow">→</span><span><span class="note-key">2</span> Поменяй код</span><span class="note-arrow">→</span><span><span class="note-key">3</span> Нажми «Запустить»</span></div>
+        <span class="made-note">Сделано для тех, кто только начинает <span aria-hidden="true">♥</span></span>
+      </section>
+      <footer class="site-footer"><span>© 2026 CodeSprout Studio</span><span>Без аккаунта. Без установок. Просто начни. <span aria-hidden="true">✳</span></span></footer>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
